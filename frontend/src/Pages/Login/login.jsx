@@ -29,11 +29,12 @@ const Login= (props) => {
         }
     }
 
+    const backendURL = import.meta.env.VITE_BACKEND_URL;
     const handleLogin =async()=>{
         if(loginField.email.trim()===""|| loginField.password.trim()==="")  return toast.error("Please enter the credentials");
         props.showLoader();
 
-        await axios.post('http://localhost:4000/api/auth/login',loginField,{withCredentials:true}).then((response)=>{
+        await axios.post(`${backendURL}/api/auth/login`, loginField, { withCredentials: true }).then((response)=>{
             console.log(response)
             localStorage.setItem('token',response.data.token);
             localStorage.setItem('userInfo',JSON.stringify(response.data.user));
