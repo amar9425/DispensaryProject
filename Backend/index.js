@@ -16,6 +16,10 @@ app.use(cors({
     
 }));
 
+app.get("/", (req, res) => {
+  res.send("Backend is running 🚀");
+});
+
 
 require('./connection'); // Assuming connection.js is in the same directory
 
