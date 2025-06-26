@@ -1,0 +1,22 @@
+.gallery{
+    padding: 60px 100px;
+
+}
+.add-pic-gallery-btn{
+    padding: 10px 20px;
+    background-color: #255674;
+    color: white;
+    width: fit-content;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    &:hover{
+        background-color: #2c98dc;
+
+    }
+}
+.img-admin{
+    &:hover{
+        filter: brightness(50%);
+    }
+}

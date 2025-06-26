@@ -1,0 +1,55 @@
+.register-student{
+    padding: 60px 100px;
+    background-color: whitesmoke;
+}
+.go-back{
+    margin-bottom: 20px;
+    font-size: 20px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: #255674;
+    display: flex;
+}
+.go-back a{
+    display: flex;
+    align-items: center;
+}
+.register-form-block{
+    background-color: white;
+    width: 80%;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+.register-form-header{
+    color: #255674;
+    font-size:24px ;
+    font-weight: 700;
+
+}
+
+.register-form{
+    margin-top: 30px;
+
+
+}
+.register-form-div{
+    display: grid;
+    width: 100%;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+
+}
+.register-input-box{
+    width: 80%;
+
+
+
+}
+.block-divs{
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}

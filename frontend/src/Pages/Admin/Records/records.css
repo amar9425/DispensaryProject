@@ -1,0 +1,29 @@
+.records{
+    background-color: whitesmoke;
+    padding: 60px 100px;
+}
+.records-date-block{
+    margin-top: 20px ;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.records-date-year{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.records-year{
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid;
+    &:hover{
+        background-color: #255674;
+        color: white;
+        cursor: pointer;
+    }
+}
+.active-stats{
+    background-color:#255674 ;
+    color: white;
+}

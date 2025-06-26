@@ -1,0 +1,65 @@
+.login-page{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 100px 160px;
+    box-sizing: border-box;
+    gap: 100px;
+    background:url("/bg.png") ;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.login-page-card{
+    width: 30%;
+    height: fit-content;
+    background-color: white;
+    padding: 30px;
+    box-sizing: border-box;
+    box-shadow: rgba(0,0,0,0.16) 0px 3px 6px ,rgba(0,0,0,0.23) 0px 3px 6px;
+}
+.card-header-form{
+    font-size: 30px;
+    font-weight: 600;
+    color: #255674;
+    text-align: center;
+}
+.form-input-fields{
+    margin: 20px 0px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.form-input{
+    width: 100%;
+    padding: 15px 20px;
+    box-sizing: border-box;
+    font: 16px;
+    outline: none;
+    border-radius: 5px;
+}
+.form-btn{
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+    border: 1px solid;
+    box-sizing: border-box;
+    color: white;
+    background-color: #255674;
+    font: 30px;
+    cursor: pointer;
+}
+.forgot-password-link{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.signup-page-card{
+
+    width: 40%;
+    height: fit-content;
+    background-color: white;
+    padding: 30px;
+    box-sizing: border-box;
+    box-shadow: rgba(0,0,0,0.16) 0px 3px 6px ,rgba(0,0,0,0.23) 0px 3px 6px;
+}
