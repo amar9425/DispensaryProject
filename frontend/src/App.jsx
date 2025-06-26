@@ -19,7 +19,7 @@ import GlobalLoader from './components/GlobalLoader/globalLoader';
 function App(){
 
   const [loader,setLoader] = useState(false);
-  const [isLogin,setIsLogin] = useState(localStorage.getItem("isLogin"));
+  const [isLogin,setIsLogin] = useState(localStorage.getItem("isLogin")==="true");
 
 
 
