@@ -5,7 +5,7 @@ import Header from './components/Header/header'
 import { Route,Routes,Navigate } from 'react-router-dom';
 import Home from './Pages/Home/home';
 import Footer from './components/Footer/footer';
-import Login from './Pages/login/login';
+import Login from './Pages/Login/login';
 import Stock from './Pages/Stock/stock';
 import AdminDashboard from './Pages/Admin/Dashboard/admindashboard';
 import RegisterStudent from './Pages/Admin/RegisterStudent/registerStudent';
