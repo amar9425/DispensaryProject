@@ -12,7 +12,7 @@ app.use(cookieParser());
 
 app.use(cors({
     credentials:true,
-    origin:"https://dispensary-frontend-nine.vercel.app"
+    origin:"https://dispensary-project-kkvj.vercel.app/"
     
 }));
 
