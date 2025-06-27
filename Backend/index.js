@@ -2,7 +2,6 @@ const express= require('express');
 const app = express();
 const cookieParser = require('cookie-parser');
 const cors = require("cors")
-module.exports = app;
 
 
 
@@ -45,3 +44,5 @@ app.use('/api/history',historyRoutes);
 app.listen(process.env.PORT, () => {
     console.log('Server is running on port',process.env.PORT);
 });
+
+module.exports = app;
