@@ -7,7 +7,7 @@ const nodemailer = require('nodemailer');
 const cookieOptions={
     httpOnly: true,
     secure:false,
-    sameSite: 'Lax'
+    sameSite: 'None'
 };
 
 const  transporter = nodemailer.createTransport({
@@ -203,7 +203,7 @@ exports.getStudentByRollNo=async(req,res)=>{
         }
         return res.status(400).json({error:"No Such Student is there"})
 
-    }catch{
+    }catch(err){
         console.log(err)
         res.status(500).json({
             error:"Something Went Wrong",
@@ -247,7 +247,7 @@ exports.registerStudentByStaff= async(req,res)=>{
         });
 
 
-    }catch{
+    }catch(err){
         console.log(err)
         res.status(500).json({
             error:"Something Went Wrong",
@@ -337,7 +337,7 @@ exports.updateStaffById=async(req,res)=>{
 
         }
 
-    }catch{
+    }catch(err){
         console.log(err)
         res.status(500).json({
             error:"Something Went Wrong",
@@ -358,7 +358,7 @@ exports.deleteStaff=async(req,res)=>{
         return res.status(400).json(400).json({error:"No Such Staff is there"})
 
 
-    }catch{
+    }catch(err){
          console.log(err)
         res.status(500).json({
             error:"Something Went Wrong",
