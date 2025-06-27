@@ -33,9 +33,12 @@ const AddModal = (props) => {
       setLoader(false);
     }
   };
+const backendURL = import.meta.env.VITE_BACKEND_URL;
+
+  
 
   const handleSubmit = async () => {
-    await axios.post('http://localhost:4000/api/gallary/add', { link: image },{withCredentials: true}).then((response) => {
+    await axios.post(`${backendURL}/api/gallary/add`, { link: image },{withCredentials: true}).then((response) => {
       window.location.reload();
 
     }).catch((err) => {
@@ -51,7 +54,7 @@ const AddModal = (props) => {
         <div>Add Image</div>
 
         <div className='modal-add-btns'>
-          <div className='cancel-modal-btn' onClick={props.onClose()}>Cancel</div>
+          <div className='cancel-modal-btn' onClick={props.onClose}>Cancel</div>
 
           <label htmlFor='fileInput' className='cancel-modal-btn'>
             Upload
