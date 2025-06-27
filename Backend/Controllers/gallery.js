@@ -4,7 +4,7 @@ exports.addImage = async(req,res)=>{
     try{
 
         const {link} = req.body;
-        const image = new GallaryModal({link,addedBy:req.user._id});
+        const image = new GalleryModal({link,addedBy:req.user._id});
         await image.save();
         res.status(200).json({message:"Image Added Successfully",image})
 
