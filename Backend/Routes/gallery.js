@@ -1,11 +1,11 @@
 const express = require("express");
 const router= express.Router();
 const Authentication =require('../Authentication/auth');
-const GallaryController = require('../Controllers/gallary');
+const GalleryController = require('../Controllers/gallery');
 
-router.post("/add",Authentication.adminFacultyAuth,GallaryController.addImage);
-router.get("/get",GallaryController.getAllGallary);
-router.delete("/delete/:id",Authentication.adminFacultyAuth,GallaryController.deleteImageById);
+router.post("/add",Authentication.adminFacultyAuth,GalleryController.addImage);
+router.get("/get",GalleryController.getAllGallery);
+router.delete("/delete/:id",Authentication.adminFacultyAuth,GalleryController.deleteImageById);
 
 
 
