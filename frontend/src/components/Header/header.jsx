@@ -5,6 +5,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import './header.css';
 import axios from 'axios';
 
+
+const backendURL = import.meta.env.VITE_BACKEND_URL;
+
 const Header = (props) => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -21,7 +24,7 @@ const Header = (props) => {
   };
 
   const fetchEvents = async () => {
-    await axios.get('http://localhost:4000/api/notification/get').then(response => {
+    await axios.get(`${backendURL}/api/notification/get`).then(response => {
       console.log("fetching data");
       
       setEvents(response.data.notifications);
@@ -54,7 +57,7 @@ const Header = (props) => {
     props.showLoader();
     try {
       await axios.post(
-        'http://localhost:4000/api/auth/logout',
+        `${backendURL}/api/auth/logout`,
         {},
         { withCredentials: true } // ✅ Important for sending cookie
       );
