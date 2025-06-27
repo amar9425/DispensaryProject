@@ -12,6 +12,9 @@ import axios from 'axios';
 import { ToastContainer,toast } from 'react-toastify';
 import StudentAllFiles from './StudentAllDetails/studentAllFiles';
 
+const backendURL = import.meta.env.VITE_BACKEND_URL;
+
+
 
 const Records = (props) => {
   const [studentRoll, setStudentRoll] = useState('');
