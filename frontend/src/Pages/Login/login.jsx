@@ -62,7 +62,7 @@ const Login= (props) => {
         if(registerField.email.trim() === "" || registerField.password.trim() ==="" || registerField.name.trim() === "") return toast.error("Please enter the Credentials");
         if(registerField.name.length<3) return toast.error("Name should be greater than 2 character")
         props.showLoader();
-        await axios.post('http://localhost:4000/api/auth/register',registerField).then(response =>{
+        await axios.post(`${backendURL}/api/auth/register`,registerField).then(response =>{
             toast.success("User Registered Successfully")
 
         }).catch(err=>{
