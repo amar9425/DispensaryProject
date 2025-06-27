@@ -9,6 +9,9 @@ import Modal from '../../../components/Modal/modal';
 import MedicineModal from './MedicineModal/medicinemodal';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
+
+const backendURL = import.meta.env.VITE_BACKEND_URL;
+
 const ManageMedicine =(props) =>{
         const [medicineSearch,setMedicineSearch]= useState("");
         const[addModal,setAddModal]= useState(false);
@@ -31,7 +34,7 @@ const ManageMedicine =(props) =>{
 
         const fetchData = async()=>{
             props.showLoader();
-            await axios.get(`http://localhost:4000/api/medicine/search-by-name?name=${medicineSearch}` ).then((response)=>{
+            await axios.get(`${backendURL}/api/medicine/search-by-name?name=${medicineSearch}` ).then((response)=>{
                 console.log(response);
                 setData(response.data.medicines);
             }).catch(err=>{
@@ -55,7 +58,7 @@ const ManageMedicine =(props) =>{
 
         const handleDelete = async (id) => {
             props.showLoader();
-            await axios.delete(`http://localhost:4000/api/medicine/delete/${id}`,{withCredentials:true}).then((response)=>{
+            await axios.delete(`${backendURL}/api/medicine/delete/${id}`,{withCredentials:true}).then((response)=>{
                 filteroutMedicine(id);
                 // toast.success(response.data.message);
                 // fetchData();
