@@ -3,6 +3,9 @@ import React,{useEffect,useState} from 'react';
 import './nearByHospitals.css'
 import TableComp from '../Table/tableComp';
 import axios from 'axios'
+
+const backendURL = import.meta.env.VITE_BACKEND_URL;
+
 const NearByHospitals = (props) => {
   const hosptalheaders=["Sn No.","Name","Address","Contact"]
   
@@ -22,7 +25,7 @@ const NearByHospitals = (props) => {
 
     const fetchData = async()=>{
       props.showLoader()
-      await axios.get('http://localhost:4000/api/hospital/get').then((response)=>{
+      await axios.get(`${backendURL}/api/hospital/get`).then((response)=>{
         getFormattedData(response.data.hospitals)
 
       }).catch(err=>{
