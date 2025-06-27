@@ -2,6 +2,9 @@ import React,{useEffect,useState} from 'react';
 import './staff.css'
 import TableComp from '../Table/tableComp';
 import axios from 'axios'
+
+const backendURL = import.meta.env.VITE_BACKEND_URL;
+
 const staff= (props) =>{
   const staffHeader=["Name","Designation","Email Id","Contact No."]
 
@@ -17,7 +20,7 @@ const staff= (props) =>{
 
   const fetchData = async()=>{
     props.showLoader();
-      await axios.get("http://localhost:4000/api/auth/get-staff").then((response)=>{
+      await axios.get(`${backendURL}/api/auth/get-staff`).then((response)=>{
         getFormattedData(response.data.staffs)
       }).catch(err=>{
 
