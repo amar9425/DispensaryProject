@@ -304,7 +304,7 @@ exports.getAllStaffs=async(req,res)=>{
         })
 
 
-    }catch{
+    }catch(err){
         console.log(err)
         res.status(500).json({
             error:"Something Went Wrong",
