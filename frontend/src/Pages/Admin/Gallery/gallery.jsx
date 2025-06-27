@@ -29,7 +29,7 @@ const Gallery = (props) => {
     }
     const fetchData = async () => {
         props.showLoader();
-        axios.get(`${backendURL}/api/gallary/get`).then((response) => {
+        axios.get("`${backendURL}/api/gallary/get`").then((response) => {
             console.log(response);
             setData(response.data.images);
         }).catch(err => {
