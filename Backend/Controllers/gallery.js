@@ -1,4 +1,4 @@
-const GallaryModal = require('../Models/gallary')
+const GalleryModal = require('../Models/gallery')
 
 exports.addImage = async(req,res)=>{
     try{
@@ -20,7 +20,7 @@ exports.addImage = async(req,res)=>{
 exports.getAllGallary=async(req,res)=>{
     try{
 
-        const images = await GallaryModal.find();
+        const images = await GalleryModal.find();
         return res.status(200).json({
             message:"Images Fetched Successfully",
             images
@@ -40,7 +40,7 @@ exports.deleteImageById = async(req,res)=>{
     try{
 
         const {id} = req.params;
-        const image =await GallaryModal.findByIdAndDelete(id);
+        const image =await GalleryModal.findByIdAndDelete(id);
 
         if(image){
             return res.status(200).json({
