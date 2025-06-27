@@ -3,6 +3,9 @@ import './medicinemodal.css';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 import newStyled from '@emotion/styled';
+
+const backendURL = import.meta.env.VITE_BACKEND_URL;
+
 const MedicineModal = (props)=>{
     const[medicine,setMedicine]=useState({name:"",quantity:"",usage:""});
     const handleOnChange=(event,key)=>{
@@ -20,7 +23,7 @@ const MedicineModal = (props)=>{
 
     const updateValue = async()=>{
         props.showLoader();
-        await axios.put(`http://localhost:4000/api/medicine/update/${props.clickedMedicine._id}`,medicine,{withCredentials:true}).then((response)=>{
+        await axios.put(`${backendURL}/api/medicine/update/${props.clickedMedicine._id}`,medicine,{withCredentials:true}).then((response)=>{
             window.location.reload();
         }).catch(err=>{
             toast.error(err?.response?.data?.error);
@@ -44,7 +47,7 @@ const MedicineModal = (props)=>{
 
        if(medicine.name.trim().length === 0 || medicine.quantity.trim().length === 0 || medicine.usage.trim().length === 0) return toast.error("Please fill all the details.");
        props.showLoader();
-       await axios.post('http://localhost:4000/api/medicine/add',medicine,{withCredentials:true}).then((response)=>{
+       await axios.post(`${backendURL}/api/medicine/add`,medicine,{withCredentials:true}).then((response)=>{
         window.location.reload();
        }).catch(err=>{
         toast.error(err?.response?.data?.error);
