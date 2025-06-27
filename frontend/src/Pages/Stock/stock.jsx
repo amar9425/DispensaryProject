@@ -27,7 +27,7 @@ const Stock= (props) => {
 
     const fetchData = async()=>{
       props.showLoader()
-      await axios.get(`http://localhost:4000/api/medicine/search-by-name?name=${medicineName}` ).then((response)=>{
+      await axios.get(`${backendURL}/api/medicine/search-by-name?name=${medicineName}` ).then((response)=>{
     
 
         if(response.data.medicines.length === 0){
