@@ -8,6 +8,8 @@ import Report from './Report/report';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 
+const backendURL = import.meta.env.VITE_BACKEND_URL;
+
 const RegisterStudent=(props)=>{
     const [searchStudent,setSearchStudent]=useState("");
     const [reportModal,setReportModal]=useState(false);
@@ -37,7 +39,7 @@ const RegisterStudent=(props)=>{
             return toast.error("Please enter roll no.");
         }
         props.showLoader();
-        await axios.get(`http://localhost:4000/api/auth/get-student-by-roll/${searchStudent}`,{withCredentials:true}).then((response)=>{
+        await axios.get(`${backendURL}/api/auth/get-student-by-roll/${searchStudent}`,{withCredentials:true}).then((response)=>{
             console.log(response)
            // toast.success(response.data.message);
             setStudentDetail({...studentDetail,...response.data.student})
@@ -55,7 +57,7 @@ const RegisterStudent=(props)=>{
         if(studentDetail.name.trim().length===0 || studentDetail.email.trim().length===0 || String(studentDetail.roll).trim().length===0 || studentDetail.mobileNo.trim().length===0) return toast.error("Name,Mobile nO and Roll cantbe empty ");
         props.showLoader();
         const {_id,updatedAt,...student} = {...studentDetail};
-        await axios.put(`http://localhost:4000/api/auth/update-student/${_id}`,student,{withCredentials:true}).then(response=>{
+        await axios.put(`${backendURL}/api/auth/update-student/${_id}`,student,{withCredentials:true}).then(response=>{
             console.log(response)
             toast.success(response.data.message);
 
@@ -72,7 +74,7 @@ const RegisterStudent=(props)=>{
     const registerStudent = async()=>{
         if(String(studentDetail.name).trim().length ===0 || String(studentDetail.email).trim().length===0 || String(studentDetail.roll).trim().length===0 || String(studentDetail.mobileNo).trim().length===0) return toast.error("Name,Mobile No,Email and Roll cant be empty");
          props.showLoader();
-         await axios.post('http://localhost:4000/api/auth/registerStudentByStaff',studentDetail,{withCredentials:true}).then(response=>{
+         await axios.post(`${backendURL}/api/auth/registerStudentByStaff`,studentDetail,{withCredentials:true}).then(response=>{
             toast.success(response.data.message);
 
         }).catch(err=>{
