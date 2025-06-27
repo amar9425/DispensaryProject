@@ -1,13 +1,15 @@
 import React,{useEffect,useState} from 'react';
 import './facility.css'
 import axios from 'axios';
+
+const backendURL = import.meta.env.VITE_BACKEND_URL;
 const Facility = (props) => {
 
    const [data,setData] = useState([]);
 
    const fetchData = async()=>{
       props.showLoader()
-      await axios.get('http://localhost:4000/api/facility/get').then((response)=>{
+      await axios.get(`${backendURL}/api/facility/get`).then((response)=>{
          console.log(response)
          setData(response.data.facility);
       }).catch(err=>{
