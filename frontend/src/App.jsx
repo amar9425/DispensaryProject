@@ -13,7 +13,7 @@ import ManageMedicine from './Pages/Admin/ManageMedicine/manageMedicine';
 import Records from './Pages/Admin/Records/records';
 import Facility from './Pages/Admin/Facility/facilitye';
 import NearByHospital from './Pages/Admin/NearByHospital/nearByHospital';
-import Gallery from './Pages/Admin/Gallery/gallery';
+import Gallery from './Pages/Admin/Gallery/gallary';
 import StudentDashboard from './Pages/Student/studentDashboard'; 
 import GlobalLoader from './components/GlobalLoader/globalLoader';
 function App(){
@@ -54,7 +54,7 @@ function App(){
         < Route path='/admin/records' element={isLogin && role!=='student' ?<Records showLoader={showLoader} hideLoader={hideLoader}/>:<Navigate to="/"/>} />
         < Route path='/admin/facilitye' element={isLogin && role!=='student' ?<Facility showLoader={showLoader} hideLoader={hideLoader}/>:<Navigate to="/"/>} />
         < Route path='/admin/nearByHospital' element={isLogin && role!=='student' ?<NearByHospital showLoader={showLoader} hideLoader={hideLoader}/>:<Navigate to="/"/>} />
-        < Route path='/admin/gallery' element={isLogin && role!=='student' ?<Gallery showLoader={showLoader} hideLoader={hideLoader}/>:<Navigate to="/"/>} />
+        < Route path='/admin/gallary' element={isLogin && role!=='student' ?<Gallery showLoader={showLoader} hideLoader={hideLoader}/>:<Navigate to="/"/>} />
 
         < Route path='/student/:id' element={isLogin && role==="student"? <StudentDashboard showLoader={showLoader} hideLoader={hideLoader}/> :<Navigate to="/"/> } />
       </Routes>
