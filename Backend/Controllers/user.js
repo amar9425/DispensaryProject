@@ -352,7 +352,7 @@ exports.deleteStaff=async(req,res)=>{
         const {id}=req.params;
         const deleteUser=await UserModels.findByIdAndDelete(id);
 
-        if(deleteduser){
+        if(deleteUser){
             return res.status(200).json({message:"Staff getting Deleted"});
         }
         return res.status(400).json(400).json({error:"No Such Staff is there"})
