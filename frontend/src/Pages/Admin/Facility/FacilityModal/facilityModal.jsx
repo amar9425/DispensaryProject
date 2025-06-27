@@ -3,6 +3,8 @@ import './facilityModal.css';
 import { ToastContainer,toast } from 'react-toastify';
 import axios from 'axios';
 
+const backendURL = import.meta.env.VITE_BACKEND_URL;
+
 const FacilityModal = (props)=> {
     const[inputField,setInputField] = useState({title:"",description:""});
     const handleChange = (event,key) => {
@@ -20,7 +22,7 @@ const FacilityModal = (props)=> {
     },[]);
 
     const updateFacility = async()=>{
-        await axios.put(`http://localhost:4000/api/facility/update/${props.clickedItem._id}`,inputField,{withCredentials: true}).then((response)=>{
+        await axios.put(`${backendURL}/api/facility/update/${props.clickedItem._id}`,inputField,{withCredentials: true}).then((response)=>{
              window.location.reload();
         }).catch((err)=>{
             toast.error(err?.response?.data?.error);
@@ -45,7 +47,7 @@ const FacilityModal = (props)=> {
         }
 
 
-        await axios.post('http://localhost:4000/api/facility/add', inputField,{withCredentials: true}).then((response)=>{
+        await axios.post('${backendURL}/api/facility/add', inputField,{withCredentials: true}).then((response)=>{
             window.location.reload();
         }).catch((err)=>{
             toast.error(err?.response?.data?.error);
