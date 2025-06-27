@@ -5,6 +5,9 @@ import  DeleteIcon from '@mui/icons-material/Delete';
 import { Form } from 'react-router-dom';
 import axios from 'axios';
 import { ToastContainer,toast } from 'react-toastify';
+
+const backendURL = import.meta.env.VITE_BACKEND_URL;
+
  const Report=(props)=>{
     const [searchMedicineName,setSearchMedicineName]=useState("")
     const[dropdown,setDropDown]=useState(false);
@@ -15,7 +18,7 @@ import { ToastContainer,toast } from 'react-toastify';
         setSearchMedicineName(value);
     }
     const fetchData = async()=>{
-            await axios.get(`http://localhost:4000/api/medicine/search-by-name?name=${searchMedicineName}` ).then((response)=>{
+            await axios.get(`${backendURL}/api/medicine/search-by-name?name=${searchMedicineName}` ).then((response)=>{
                 console.log(response);
                 setData(response.data.medicines);
                 if(searchMedicineName.trim().length===0){
@@ -84,7 +87,7 @@ import { ToastContainer,toast } from 'react-toastify';
     const handleOnSubmit = async()=>{
         if(selectedMedicine.length === 0)return toast.error("Please select any medicine.");
         if(checkInputInValid()) return toast.error("Please enter all the fields.")
-            await axios.post('http://localhost:4000/api/history/add',{roll:props.studentDetail.roll,student:props.studentDetail._id,medicines:selectedMedicine},{withCredentials:true}).then(response=>{
+            await axios.post(`${backendURL}/api/history/add`,{roll:props.studentDetail.roll,student:props.studentDetail._id,medicines:selectedMedicine},{withCredentials:true}).then(response=>{
         toast.success(response.data.message)
         setTimeout(()=>{
             props.handleCloseModal();
