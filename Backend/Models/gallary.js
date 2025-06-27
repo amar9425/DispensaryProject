@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const gallerySchema = new mongoose.Schema({
+const gallarySchema = new mongoose.Schema({
     link: {
         type: String,
     },
@@ -11,5 +11,5 @@ const gallerySchema = new mongoose.Schema({
     },
 }, { timestamps: true });
 
-const galleryModel = mongoose.model('gallary', gallerySchema);
-module.exports = galleryModel;
+const gallaryModel = mongoose.model('gallary', gallarySchema);
+module.exports = gallaryModel;
